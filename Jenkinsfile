@@ -1,7 +1,10 @@
 // Jenkinsfile
 pipeline {
     agent {
-        docker { image 'mcr.microsoft.com/dotnet/sdk:8.0' }
+        docker { 
+            image 'mcr.microsoft.com/dotnet/sdk:8.0'
+            args '-e HOME=/tmp' // => /tmp/.dotnet => /tmp universally writable location inside linux containers
+        }
     }
 
     stages {
@@ -10,7 +13,6 @@ pipeline {
         stage('Restore Dependencies') {
             steps {
                 echo 'Restoring NuGet packages...'
-                // 'dotnet restore' is the command to download dependencies.
                 sh 'dotnet restore'
             }
         }
