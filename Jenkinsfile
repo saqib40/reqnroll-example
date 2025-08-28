@@ -27,7 +27,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'dotnet test --no-build --verbosity normal'
+                sh 'dotnet test --configuration Release --no-build --verbosity normal'
             }
         }
     }
