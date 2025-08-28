@@ -2,7 +2,7 @@
 pipeline {
     agent {
         docker { 
-            image 'mcr.microsoft.com/dotnet/sdk:8.0'
+            image 'mcr.microsoft.com/dotnet/sdk:9.0'
             args '-e HOME=/tmp' // => /tmp/.dotnet => /tmp universally writable location inside linux containers
         }
     }
